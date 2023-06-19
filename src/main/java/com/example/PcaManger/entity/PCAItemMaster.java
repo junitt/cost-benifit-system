@@ -10,7 +10,7 @@ public class PCAItemMaster {
     public PCAItemMaster(){}
     @Id
     @GeneratedValue
-    private long ItemId;
+    private long id;
     private String CarSystem;
     private String ItemCode;
     private String ItemName;
@@ -26,7 +26,7 @@ public class PCAItemMaster {
     private String BlobFile;
 
     @JsonIgnoreProperties(value = {"item", "node"})
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy="item")
     List<PCAItemVersion> versionlist;
 
 }

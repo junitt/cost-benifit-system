@@ -10,7 +10,7 @@ public class PCANode {
     public PCANode(){}
     @Id
     @GeneratedValue
-    private long ItemNodeId;
+    private long id;
     private String ItemNode;
     private String ItemNodeName;
     private String CarNodePeriod;
@@ -18,6 +18,9 @@ public class PCANode {
     private String IsStop;
     private String StopDate;
     @JsonIgnoreProperties(value = {"item", "node"})
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy="node")
     List<PCAItemVersion> versionlist;
+    public long getId(){
+        return id;
+    }
 }

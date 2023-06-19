@@ -11,7 +11,7 @@ public class PCAItemVersion {
     public PCAItemVersion(){}
     @Id
     @GeneratedValue
-    private long verId;
+    private long id;
     private String VersionType;
     private String VersionCode;
     private String VersionName;
