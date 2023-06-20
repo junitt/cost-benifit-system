@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/User-Management/User-Management.iml" filepath="$PROJECT_DIR$/User-Management/User-Management.iml" />
-      <module fileurl="file://$PROJECT_DIR$/User-Manager/User-Manager.iml" filepath="$PROJECT_DIR$/User-Manager/User-Manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cost-benifit-system-back.iml" filepath="$PROJECT_DIR$/.idea/cost-benifit-system-back.iml" />
     </modules>
   </component>
