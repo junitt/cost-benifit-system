@@ -1,5 +1,6 @@
 package com.example.PcaManger.entity;
 
+import com.example.PcaManger.entity.ProductEntities.PCAItemCarSeries;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -25,8 +26,11 @@ public class PCAItemMaster {
     private String ArchiveDate;
     private String BlobFile;
 
-    @JsonIgnoreProperties(value = {"item", "node"})
+    @JsonIgnoreProperties(value = {"item", "node","memo"})
     @OneToMany(cascade = CascadeType.REMOVE,mappedBy="item")
-    List<PCAItemVersion> versionlist;
+    private List<PCAItemVersion> versionlist;
+    @JsonIgnoreProperties(value={"itemlist","cartypelist"})
+    @ManyToOne(cascade = CascadeType.PERSIST,optional = false)
+    private PCAItemCarSeries carseriestype;
 
 }

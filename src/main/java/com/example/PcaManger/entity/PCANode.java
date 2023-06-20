@@ -11,13 +11,13 @@ public class PCANode {
     @Id
     @GeneratedValue
     private long id;
-    private String ItemNode;
+    private String itemNode;
     private String ItemNodeName;
     private String CarNodePeriod;
     private String Seq;
     private String IsStop;
     private String StopDate;
-    @JsonIgnoreProperties(value = {"item", "node"})
+    @JsonIgnoreProperties(value = {"item", "node","memo"})
     @OneToMany(cascade = CascadeType.REMOVE,mappedBy="node")
     List<PCAItemVersion> versionlist;
     public long getId(){

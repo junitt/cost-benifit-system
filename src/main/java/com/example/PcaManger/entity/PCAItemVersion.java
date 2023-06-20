@@ -1,5 +1,5 @@
 package com.example.PcaManger.entity;
-
+import com.example.PcaManger.entity.ProductEntities.RepChangeMemo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,4 +25,7 @@ public class PCAItemVersion {
     @JsonIgnoreProperties("versionlist")
     @ManyToOne(optional = false)
     private PCAItemMaster item;
+    @JsonIgnoreProperties("versionlist")
+    @ManyToOne(optional = true)
+    private RepChangeMemo memo;
 }
