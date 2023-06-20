@@ -1,5 +1,6 @@
 package com.example.project_basic_manager.ProjectNodeManager.Entity;
 
+import com.example.project_basic_manager.ProjectNodeManager.General.RecPCANode;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -7,9 +8,6 @@ import java.util.List;
 
 @Entity
 public class PCANode {
-    public PCANode() {
-
-    }
 
     @Id
     @GeneratedValue
@@ -25,6 +23,18 @@ public class PCANode {
     @JsonIgnoreProperties(value = {"item", "node"})
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "node")
     List<PCAItemVersion> versionlist;
+
+    public PCANode() {
+
+    }
+
+    public PCANode(RecPCANode recPCANode) {
+        this.ItemNode = recPCANode.getItemNode();
+        this.ItemNodeName = recPCANode.getItemNodeName();
+        this.CarNodePeriod = recPCANode.getCarNodePeriod();
+        this.IsStop = recPCANode.getIsStop();
+        this.StopDate = recPCANode.getStopDate();
+    }
 
     public long getId() {
         return id;
@@ -94,5 +104,13 @@ public class PCANode {
                 ", StopDate='" + StopDate + '\'' +
                 ", versionlist=" + versionlist +
                 '}';
+    }
+
+    public void SetAttribute(PCANode other) {
+        this.ItemNode = other.getItemNode();
+        this.ItemNodeName = other.getItemNodeName();
+        this.CarNodePeriod = other.getCarNodePeriod();
+        this.IsStop = other.getIsStop();
+        this.StopDate = other.getStopDate();
     }
 }

@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PCANodeRepository extends PagingAndSortingRepository<PCANode, Long>, JpaRepository<PCANode, Long> {
-
+    PCANode findById(long id);
 }

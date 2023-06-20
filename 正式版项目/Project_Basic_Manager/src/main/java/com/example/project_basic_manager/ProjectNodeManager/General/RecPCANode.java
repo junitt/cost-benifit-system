@@ -9,50 +9,50 @@ package com.example.project_basic_manager.ProjectNodeManager.General;
  */
 
 public class RecPCANode {
-    private String ItemNode;
-    private String ItemNodeName;
-    private String CarNodePeriod;
-    private String IsStop;
-    private String StopDate;
+    private String itemNode;
+    private String itemNodeName;
+    private String carNodePeriod;
+    private String isStop;
+    private String stopDate;
 
     public String getItemNode() {
-        return ItemNode;
+        return itemNode;
     }
 
     public void setItemNode(String itemNode) {
-        this.ItemNode = itemNode;
+        this.itemNode = itemNode;
     }
 
     public String getItemNodeName() {
-        return ItemNodeName;
+        return itemNodeName;
     }
 
     public void setItemNodeName(String itemNodeName) {
-        this.ItemNodeName = itemNodeName;
+        this.itemNodeName = itemNodeName;
     }
 
     public String getCarNodePeriod() {
-        return CarNodePeriod;
+        return carNodePeriod;
     }
 
     public void setCarNodePeriod(String carNodePeriod) {
-        this.CarNodePeriod = carNodePeriod;
+        this.carNodePeriod = carNodePeriod;
     }
 
     public String getIsStop() {
-        return IsStop;
+        return isStop;
     }
 
     public void setIsStop(String isStop) {
-        this.IsStop = isStop;
+        this.isStop = isStop;
     }
 
     public String getStopDate() {
-        return StopDate;
+        return stopDate;
     }
 
     public void setStopDate(String stopDate) {
-        this.StopDate = stopDate;
+        this.stopDate = stopDate;
     }
 
     public RecPCANode(){
@@ -60,21 +60,21 @@ public class RecPCANode {
     }
 
     public RecPCANode(String itemNode, String itemNodeName, String carNodePeriod, String isStop, String stopDate) {
-        this.ItemNode = itemNode;
-        this.ItemNodeName = itemNodeName;
-        this.CarNodePeriod = carNodePeriod;
-        this.IsStop = isStop;
-        this.StopDate = stopDate;
+        this.itemNode = itemNode;
+        this.itemNodeName = itemNodeName;
+        this.carNodePeriod = carNodePeriod;
+        this.isStop = isStop;
+        this.stopDate = stopDate;
     }
 
     @Override
     public String toString() {
         return "RecPCANode{" +
-                "ItemNode='" + ItemNode + '\'' +
-                ", ItemNodeName='" + ItemNodeName + '\'' +
-                ", CarNodePeriod='" + CarNodePeriod + '\'' +
-                ", IsStop='" + IsStop + '\'' +
-                ", StopDate='" + StopDate + '\'' +
+                "ItemNode='" + itemNode + '\'' +
+                ", ItemNodeName='" + itemNodeName + '\'' +
+                ", CarNodePeriod='" + carNodePeriod + '\'' +
+                ", IsStop='" + isStop + '\'' +
+                ", StopDate='" + stopDate + '\'' +
                 '}';
     }
 }
