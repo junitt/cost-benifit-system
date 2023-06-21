@@ -1,5 +1,6 @@
 package com.example.project_basic_manager.ProjectNodeManager.Entity;
 
+import com.example.project_basic_manager.ProjectNodeManager.Entity.ProductEntity.PCAItemCarSeries;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -7,11 +8,13 @@ import java.util.List;
 
 @Entity
 public class PCAItemMaster {
-    public PCAItemMaster(){}
     @Id
     @GeneratedValue
     private long id;
-    private String carSystem;
+
+    private String unitId;
+    private String unitName;
+    private long carSystem;
     private String itemCode;
     private String itemName;
     private String itemType;
@@ -25,9 +28,16 @@ public class PCAItemMaster {
     private String archiveDate;
     private String blobFile;
 
-    @JsonIgnoreProperties(value = {"item", "node"})
+    @JsonIgnoreProperties(value = {"item", "node","memo"})
     @OneToMany(cascade = CascadeType.REMOVE,mappedBy="item")
-    List<PCAItemVersion> versionlist;
+    private List<PCAItemVersion> versionlist;
+    @JsonIgnoreProperties(value={"itemlist","cartypelist"})
+    @ManyToOne(cascade = CascadeType.PERSIST,optional = false)
+    private PCAItemCarSeries carseriestype;
+
+    public PCAItemMaster() {
+
+    }
 
     public long getId() {
         return id;
@@ -37,11 +47,27 @@ public class PCAItemMaster {
         this.id = id;
     }
 
-    public String getCarSystem() {
+    public String getUnitId() {
+        return unitId;
+    }
+
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
+    }
+
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public long getCarSystem() {
         return carSystem;
     }
 
-    public void setCarSystem(String carSystem) {
+    public void setCarSystem(long carSystem) {
         this.carSystem = carSystem;
     }
 
@@ -141,10 +167,20 @@ public class PCAItemMaster {
         this.blobFile = blobFile;
     }
 
+    public PCAItemCarSeries getCarseriestype() {
+        return carseriestype;
+    }
+
+    public void setCarseriestype(PCAItemCarSeries carseriestype) {
+        this.carseriestype = carseriestype;
+    }
+
     @Override
     public String toString() {
         return "PCAItemMaster{" +
                 "id=" + id +
+                ", unitId='" + unitId + '\'' +
+                ", unitName='" + unitName + '\'' +
                 ", carSystem='" + carSystem + '\'' +
                 ", itemCode='" + itemCode + '\'' +
                 ", itemName='" + itemName + '\'' +
@@ -159,6 +195,26 @@ public class PCAItemMaster {
                 ", archiveDate='" + archiveDate + '\'' +
                 ", blobFile='" + blobFile + '\'' +
                 ", versionlist=" + versionlist +
+                ", carseriestype=" + carseriestype +
                 '}';
+    }
+
+    public void SetAttribute(PCAItemMaster other) {
+        this.id = other.id;
+        this.unitId = other.unitId;
+        this.unitName = other.unitName;
+        this.carSystem = other.carSystem;
+        this.itemCode = other.itemCode;
+        this.itemName = other.itemName;
+        this.itemType = other.itemType;
+        this.itemDocument = other.itemDocument;
+        this.carLevel = other.carLevel;
+        this.carClass = other.carClass;
+        this.driveType = other.driveType;
+        this.size = other.size;
+        this.wheelBase = other.wheelBase;
+        this.archiveFlag = other.archiveFlag;
+        this.archiveDate = other.archiveDate;
+        this.blobFile = other.blobFile;
     }
 }

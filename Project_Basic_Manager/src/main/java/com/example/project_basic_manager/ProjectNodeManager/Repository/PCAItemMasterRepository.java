@@ -7,5 +7,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 public interface PCAItemMasterRepository extends PagingAndSortingRepository<PCAItemMaster, Long>, JpaRepository<PCAItemMaster, Long> {
-    List<PCAItemMaster> findByitemCode(String str);
+    List<PCAItemMaster> findByUnitId(String message);
+    PCAItemMaster findById(long id);
 }

@@ -13,14 +13,14 @@ public class PCANode {
     @GeneratedValue
     private long id;
 
-    private String ItemNode;
-    private String ItemNodeName;
-    private String CarNodePeriod;
-    private String Seq;
-    private String IsStop;
-    private String StopDate;
+    private String itemNode;
+    private String itemNodeName;
+    private String carNodePeriod;
+    private String seq;
+    private String isStop;
+    private String stopDate;
 
-    @JsonIgnoreProperties(value = {"item", "node"})
+    @JsonIgnoreProperties(value = {"item", "node","memo"})
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "node")
     List<PCAItemVersion> versionlist;
 
@@ -29,11 +29,11 @@ public class PCANode {
     }
 
     public PCANode(RecPCANode recPCANode) {
-        this.ItemNode = recPCANode.getItemNode();
-        this.ItemNodeName = recPCANode.getItemNodeName();
-        this.CarNodePeriod = recPCANode.getCarNodePeriod();
-        this.IsStop = recPCANode.getIsStop();
-        this.StopDate = recPCANode.getStopDate();
+        this.itemNode = recPCANode.getItemNode();
+        this.itemNodeName = recPCANode.getItemNodeName();
+        this.carNodePeriod = recPCANode.getCarNodePeriod();
+        this.isStop = recPCANode.getIsStop();
+        this.stopDate = recPCANode.getStopDate();
     }
 
     public long getId() {
@@ -45,72 +45,72 @@ public class PCANode {
     }
 
     public String getItemNode() {
-        return ItemNode;
+        return itemNode;
     }
 
     public void setItemNode(String itemNode) {
-        ItemNode = itemNode;
+        this.itemNode = itemNode;
     }
 
     public String getItemNodeName() {
-        return ItemNodeName;
+        return itemNodeName;
     }
 
     public void setItemNodeName(String itemNodeName) {
-        ItemNodeName = itemNodeName;
+        this.itemNodeName = itemNodeName;
     }
 
     public String getCarNodePeriod() {
-        return CarNodePeriod;
+        return carNodePeriod;
     }
 
     public void setCarNodePeriod(String carNodePeriod) {
-        CarNodePeriod = carNodePeriod;
+        this.carNodePeriod = carNodePeriod;
     }
 
     public String getSeq() {
-        return Seq;
+        return seq;
     }
 
     public void setSeq(String seq) {
-        Seq = seq;
+        this.seq = seq;
     }
 
     public String getIsStop() {
-        return IsStop;
+        return isStop;
     }
 
     public void setIsStop(String isStop) {
-        IsStop = isStop;
+        this.isStop = isStop;
     }
 
     public String getStopDate() {
-        return StopDate;
+        return stopDate;
     }
 
     public void setStopDate(String stopDate) {
-        StopDate = stopDate;
+        this.stopDate = stopDate;
     }
 
     @Override
     public String toString() {
         return "PCANode{" +
                 "id=" + id +
-                ", ItemNode='" + ItemNode + '\'' +
-                ", ItemNodeName='" + ItemNodeName + '\'' +
-                ", CarNodePeriod='" + CarNodePeriod + '\'' +
-                ", Seq='" + Seq + '\'' +
-                ", IsStop='" + IsStop + '\'' +
-                ", StopDate='" + StopDate + '\'' +
+                ", ItemNode='" + itemNode + '\'' +
+                ", ItemNodeName='" + itemNodeName + '\'' +
+                ", CarNodePeriod='" + carNodePeriod + '\'' +
+                ", Seq='" + seq + '\'' +
+                ", IsStop='" + isStop + '\'' +
+                ", StopDate='" + stopDate + '\'' +
                 ", versionlist=" + versionlist +
                 '}';
     }
 
     public void SetAttribute(PCANode other) {
-        this.ItemNode = other.getItemNode();
-        this.ItemNodeName = other.getItemNodeName();
-        this.CarNodePeriod = other.getCarNodePeriod();
-        this.IsStop = other.getIsStop();
-        this.StopDate = other.getStopDate();
+        this.itemNode = other.getItemNode();
+        this.itemNodeName = other.getItemNodeName();
+        this.carNodePeriod = other.getCarNodePeriod();
+        this.isStop = other.getIsStop();
+        this.stopDate = other.getStopDate();
     }
 }
